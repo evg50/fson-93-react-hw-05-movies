@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import { Test } from './Test';
 export const App = () => {
   return (
     <div
@@ -14,9 +13,6 @@ export const App = () => {
       }}
     >
       {/* React homework template first */}
-      <Test />
-      {/* <Profile /> */}
-      {/* <FriendList /> */}
     </div>
   );
 };
