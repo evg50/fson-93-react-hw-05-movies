@@ -12,7 +12,7 @@ export default function HomePages() {
       const moviesList = await getTrendMovies();
       // console.log('handler', movies.length);
       if (moviesList.length > 0 && moviesList) {
-        console.log(moviesList);
+        // console.log(moviesList);
         setMovies(moviesList);
       }
     } catch (error) {
@@ -22,6 +22,7 @@ export default function HomePages() {
 
   return (
     <div>
+      <h1>Trend COMPONENT</h1>
       <ul>
         {movies.length > 0 &&
           movies.map(el => (

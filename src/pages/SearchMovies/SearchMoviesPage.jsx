@@ -15,14 +15,15 @@ export default function SearchMoviesPage() {
     // console.log('query=', query);
     const movies = await searchMovies(query);
     if (movies && movies.length > 0) {
-      // console.log(movies);
+      //movies arr
+      console.log(movies);
 
       setMoviesArr(movies);
     }
   };
 
   useEffect(() => {
-    console.log('work useEffect');
+    // console.log('work useEffect');
     const query = searchParams.get('query');
     if (!query) return;
     getMovie(query);
@@ -41,12 +42,13 @@ export default function SearchMoviesPage() {
   const handleMovie = e => {
     console.log(e.target.id);
     const idMovie = e.target.id;
-    navigate(`/movies/${idMovie}`);
+    navigate(`/fson-93-react-hw-05-movies/movies/${idMovie}`);
     // setSearchParams({ query: e.target.id });
   };
   return (
     <div>
-      SearchMoviesPage
+      <h1>Search COMPONENT </h1>
+
       <form onSubmit={handleSearch}>
         <input
           type="text"
@@ -54,15 +56,16 @@ export default function SearchMoviesPage() {
           name="searchInput"
           value={searchMovie}
         />
-        <button type="submit">search</button>
+        <button type="submit">Search</button>
       </form>
       <ul onClick={handleMovie}>
         {moviesArr.length > 0 &&
           moviesArr.map(el => (
             <li key={el.id} id={el.id}>
               {el.original_title}
+              {/* <p>id: {el.id}</p> */}
               {/* <img src={el.poster_path} alt="poster" /> */}
-              <p>relise: {el.release_date}</p>
+              {/* <p>relise: {el.release_date}</p> */}
             </li>
           ))}
       </ul>

@@ -5,6 +5,8 @@ import { Routes, Route, Link, useParams } from 'react-router-dom';
 import HomePage from 'pages/HomePage';
 import SearchMoviesPage from '../pages/SearchMovies/SearchMoviesPage';
 import MovieDetailsPage from 'pages/MovieDetails/MovieDetailsPage';
+import CastPage from 'pages/Cast/CastPage';
+import ReviewPage from 'pages/Review/ReviewPage';
 export const App = () => {
   return (
     <div
@@ -18,19 +20,33 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      {/* <nav>
-        <Link to="/">Test</Link>
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/products">Products</Link>
+      <nav>
+        <Link to="/fson-93-react-hw-05-movies/">Home </Link>
+        <Link to="/fson-93-react-hw-05-movies/movies/"> Movies </Link>
+        {/* <Link to="/about">About</Link>
+        <Link to="/products">Products</Link> */}
       </nav>
-      <div>Now showing product with id - {productId}</div>
-      React */}
+
       <Routes>
         {/* <Route path="/" element={<Test />} /> */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies/" element={<SearchMoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="/fson-93-react-hw-05-movies/" element={<HomePage />} />
+        <Route
+          path="/fson-93-react-hw-05-movies/movies/"
+          element={<SearchMoviesPage />}
+        />
+        <Route
+          path="/fson-93-react-hw-05-movies/movies/:movieId"
+          element={<MovieDetailsPage />}
+        >
+          <Route
+            path="/fson-93-react-hw-05-movies/movies/:movieId/cast"
+            element={<CastPage />}
+          />
+          <Route
+            path="/fson-93-react-hw-05-movies/movies/:movieId/review"
+            element={<ReviewPage />}
+          />
+        </Route>
       </Routes>
     </div>
   );
