@@ -8,6 +8,7 @@ import MovieDetailsPage from 'pages/MovieDetails/MovieDetailsPage';
 import CastPage from 'pages/Cast/CastPage';
 import ReviewPage from 'pages/Review/ReviewPage';
 export const App = () => {
+  // const location = useLocation();
   return (
     <div
       style={{
@@ -21,8 +22,19 @@ export const App = () => {
       }}
     >
       <nav>
-        <Link to="/fson-93-react-hw-05-movies/">Home </Link>
-        <Link to="/fson-93-react-hw-05-movies/movies/"> Movies </Link>
+        <Link
+          // state={{ from: location }}
+          to="/fson-93-react-hw-05-movies/"
+        >
+          Home{' '}
+        </Link>
+        <Link
+          // state={{ from: location }}
+          to="/fson-93-react-hw-05-movies/movies/"
+        >
+          {' '}
+          Movies{' '}
+        </Link>
         {/* <Link to="/about">About</Link>
         <Link to="/products">Products</Link> */}
       </nav>

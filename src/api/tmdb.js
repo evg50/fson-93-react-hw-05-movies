@@ -13,7 +13,7 @@ const options = {
   },
 };
 export async function getTrendMovies() {
-  console.log('getTrendMovie');
+  // console.log('getTrendMovie');
 
   const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
 
@@ -30,7 +30,7 @@ export async function getTrendMovies() {
   }
 }
 export async function searchMovies(query) {
-  console.log('searchMovie');
+  // console.log('searchMovie');
 
   if (!query) {
     return;
@@ -51,7 +51,7 @@ export async function searchMovies(query) {
   }
 }
 export async function getMovie(id) {
-  console.log('getMovie');
+  // console.log('getMovie');
   if (!id) {
     return;
   }
@@ -70,7 +70,7 @@ export async function getMovie(id) {
   }
 }
 export async function getMovieCredential(movie_id) {
-  console.log('getMovieCredential');
+  // console.log('getMovieCredential');
   if (!movie_id) {
     return;
   }
@@ -89,7 +89,7 @@ export async function getMovieCredential(movie_id) {
   }
 }
 export async function getMovieReview(movie_id) {
-  console.log('getMovieReview');
+  // console.log('getMovieReview');
   if (!movie_id) {
     return;
   }

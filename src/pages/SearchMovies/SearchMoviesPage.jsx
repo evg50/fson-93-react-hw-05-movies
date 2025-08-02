@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import {
+  useSearchParams,
+  useNavigate,
+  useLocation,
+  Link,
+} from 'react-router-dom';
 import { searchMovies } from '../../api/tmdb';
 
 export default function SearchMoviesPage() {
   const [searchMovie, setSearchMovie] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [moviesArr, setMoviesArr] = useState([]);
+  const location = useLocation();
+  console.log('location in searchMoviePage', location);
   // Http request
   const getMovie = async query => {
     if (!query) {
@@ -35,16 +42,14 @@ export default function SearchMoviesPage() {
     // console.log(searchMovie);
     if (searchMovie) {
       setSearchParams({ query: searchMovie });
-      getMovie(); //
     }
   };
   // fn hancle click for details movie
-  const handleMovie = e => {
-    console.log(e.target.id);
-    const idMovie = e.target.id;
-    navigate(`/fson-93-react-hw-05-movies/movies/${idMovie}`);
-    // setSearchParams({ query: e.target.id });
-  };
+  // const handleMovie = e => {
+  //   console.log(e.target.id);
+  //   const idMovie = e.target.id;
+  //   navigate(`/fson-93-react-hw-05-movies/movies/${idMovie}`);
+  // };
   return (
     <div>
       <h1>Search COMPONENT </h1>
@@ -58,11 +63,18 @@ export default function SearchMoviesPage() {
         />
         <button type="submit">Search</button>
       </form>
-      <ul onClick={handleMovie}>
+      {/* <ul onClick={handleMovie}> */}
+      <ul>
         {moviesArr.length > 0 &&
           moviesArr.map(el => (
             <li key={el.id} id={el.id}>
-              {el.original_title}
+              <Link
+                state={{ from: location }}
+                to={`/fson-93-react-hw-05-movies/movies/${el.id}`}
+              >
+                {el.original_title}
+              </Link>
+
               {/* <p>id: {el.id}</p> */}
               {/* <img src={el.poster_path} alt="poster" /> */}
               {/* <p>relise: {el.release_date}</p> */}

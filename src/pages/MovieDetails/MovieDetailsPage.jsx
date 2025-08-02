@@ -1,15 +1,27 @@
 import { getMovie } from 'api/tmdb';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import {
   useSearchParams,
   useNavigate,
   useParams,
   Link,
   Outlet,
+  useLocation,
 } from 'react-router-dom';
 
 export default function MovieDetailsPage() {
   const [movieInfo, setMovieInfo] = useState();
+  const location = useLocation();
+  console.log('location in movieDetailsPage', location);
+  // console.log(
+  //   'location in movieDetailsPage state',
+  //   location.state.from.pathname,
+  //   location.state.from.search
+  // );
+  const backLinkRef = useRef(
+    location.state?.from ?? '/fson-93-react-hw-05-movies'
+  );
+  console.log('backLinkRef', backLinkRef.current);
   // const [SearchParams, useSearchParams] = useSearchParams();
 
   //end importn
@@ -33,6 +45,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div>
+      <Link to={backLinkRef.current}>Go Back</Link>
       <h1>Movie Detail COMPONENT</h1>
 
       {movieInfo && (
